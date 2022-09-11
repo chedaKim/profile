@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>넷플릭스 - 따라만들기</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        body,h1,h2,h3,p,a {
+            font-weight: normal;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .gnb {
+            display : flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .gnb > a {
+            margin: 0px 40px;
+            color: white;
+        }
+
+        .gnb > a:hover {
+            
+            color: gray;
+        }
+
+        .gnb > a:last-child {
+            margin-right: auto;
+        }
+
+        .main {
+            color: white;
+            padding: 20px;
+        }
+
+        .main > p {
+            margin-top: 40px;
+            margin-bottom: 10px;
+
+            font-size: 20px;
+        }
+
+        .today {
+            background-image: url('https://image.tmdb.org/t/p/w500/bZLrpWM065h5bu1msUcPmLFsHBe.jpg');
+            background-position: center;
+            background-size: cover;
+
+            height: 250px;
+
+            padding: 50px;
+            font-size: 25px
+        }
+
+        .top > img {
+            margin: 20px;
+        }
+
+        .recommend > img {
+            margin: 20px;
+            
+            
+        }
+
+        .top > img:hover, .recommend > img:hover {
+            margin: 10px;
+            width: 200px;
+            cursor: pointer;
+        }
+
+        .icon {
+            
+            color: red;
+            background-color: black;
+
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            
+            border-radius: 50%;
+
+
+           
+        }
+
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            movie()
+        });
+
+        function movie(){
+            let base_url = "https://image.tmdb.org/t/p/w500"
+            let url = 'https://api.themoviedb.org/3/movie/popular?api_key=127d1ec8dfd28bfe9f6b8d15f689cdd4&language=ko-KR&page=1'
+            
+            fetch(url).then(res => res.json()).then((data) => {
+                let movies = data['results']
+
+                // 오늘의 영화
+                let rand = Math.floor(Math.random() * 10)
+                let today_movie = movies[rand]
+                let today_img = base_url+today_movie['backdrop_path']
+                let today_title = today_movie['title']
+
+                $('#today').css('background-image', `url('${today_img}')`)
+                $('#today > h1').text(today_title)
+
+                //TOP 10  영화
+                for (let i = 0; i < 10; i++){
+                    let top_movie = movies[i]
+                    let top_img = base_url+top_movie['poster_path']
+
+                    let temp_html = `<img width="200" src="${top_img}">`
+                    $('#top').append(temp_html)
+                }
+
+                //추천영화
+                for (let i = 0; i < movies.length; i++){
+                    let recommend_movie = movies[i]
+                    let recommend_img = base_url+recommend_movie['poster_path']
+
+                    if (recommend_movie['vote_average'] > 7.5) {
+                        let temp_html = `<img width="200" src="${recommend_img}">`
+                        $('#recommend').append(temp_html)
+
+                    }
+                    
+                }
+
+
+            });
+        }
+
+        
+    </script>
+</head>
+<body>
+		<div class="gnb">
+        <img width="130" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Logonetflix.png/1200px-Logonetflix.png">
+        <a href="#">홈</a>
+        <a href="#">TV프로그램</a>
+        <a href="#">영화</a>
+        <a href="#">내가 찜한 콘텐츠</a>
+    </div>
+    <div class="main">
+        <p>오늘의 영화</p>
+        <div id="today" class="today">
+            <h1>토르: 러브 앤 썬더</h1>
+        </div>
+        <p>오늘 한국의 Top 10 영화</p>
+        <div id="top" class="top">
+            
+        </div>
+        <p>오늘 한국의 추천 영화</p>
+        <div id="recommend" class="recommend">            
+        </div>        
+    </div>
+
+    <button class="icon" onClick="location.href='inex.html'">Next</button>
+
+    
+    
+    
+</body>
+</html>

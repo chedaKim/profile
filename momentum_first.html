@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <title>모멘텀앱 - 따라만들기</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        div,
+        a {
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        body {            
+            background-size: cover;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            height: 100vh;
+
+            color: white;
+            
+        }
+
+        .greeting {
+            font-size: 60px;
+            font-weight: bold;
+
+            margin-bottom : 20px;
+
+        }
+
+        .name {
+            font-size: 30px;
+
+        }
+
+        .name > input {
+            width: 800px;
+            border: none;
+            background-color: transparent;
+            border-bottom: 3px solid white;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .name > input:focus {
+            outline: none;
+        }
+
+        .name > i {
+            cursor: pointer;
+        }
+
+        .icon {
+            
+            color: red;
+            background-color: black;
+
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            
+            border-radius: 50%;
+
+
+           
+        }
+
+
+    </style>
+    <script>
+        $(document).ready(function () {
+            renderGalleryItem() 
+        });
+        //배경 사진 함수
+        function renderGalleryItem() {
+            let url = 'http://www.splashbase.co/api/v1/images/random'
+            fetch(url).then(res => res.json()).then((data) => {
+                    let imgurl = data['url']
+                    $('#background').css('background-image', `url(${imgurl})`)
+                })
+        }
+
+    </script>
+</head>
+
+<body id='background'>
+    <div class="main">
+        <!-- 인사 -->
+        <div class="greeting">
+            Hello, What's your name?
+        </div>
+        <!-- 이름 입력창 -->
+        <div class="name">
+            <input type="text">
+            <i class="bi bi-chevron-double-right" onClick="location.href='momentum_second.html'"></i>
+        </div>
+    </div>
+    <button class="icon" onClick="location.href='momentum_second.html'">Next</button>
+</body>
+
+</html>

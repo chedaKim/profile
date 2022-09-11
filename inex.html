@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>결혼 청첩장</title>
+    <style>
+        * {
+            font-family: 'IBM Plex Sans KR', sans-serif;
+        }
+        body, h1, h2, h3, p, a {
+            font-size: 16px;
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        .wrap {
+            width: 350px;
+            margin: auto;
+        }
+
+        .wrap > h1 {
+            background-color: pink;
+            color: white;
+            font-size: 16px;
+            padding: 19px;
+            margin: auto;
+        }
+
+        .pic > h2 {
+            font-size: 16px;
+            margin: 0px;
+            padding: 0px;
+            color: pink;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            margin: 30px auto;
+            letter-spacing: 3px;
+        }
+
+        .pic > img {
+            width: 290px;
+            height: 180px;
+
+            margin: 30px;
+            border: 3px solid pink;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .name {
+            width: 200px;
+            margin: auto;
+            font-size: 24px;
+            font-weight: 500;
+            border-top: 1px solid pink;
+            border-bottom: 1px solid pink;
+            color: pink;
+            text-align: center;
+        }
+
+        .main {
+            background-color: pink;
+            color: white;
+
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 50px;
+        }
+
+        .title {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .msg {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            line-height: 30px;
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottom > p {
+            color: pink;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .bottom > input {
+            width: 250px;
+            margin-bottom: 10px;
+        }
+
+        .bottom > textarea {
+            width: 250px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .bottom > button {
+            background-color: pink;
+            width: 150px;
+            height: 40px;
+            margin-bottom: 30px;
+
+            cursor: pointer;
+            color: white;
+
+            border-radius: 8px;
+            border: none;
+        }
+
+        .icon {
+            
+            color: red;
+            background-color: black;
+
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            
+            border-radius: 50%;
+
+
+           
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>영희와 철수의 첫 시작을 축하해주세요</h1>
+        <div class="pic">
+            <h2>save the date</h2>
+            <img src="wedding.png">
+            <h2>12.31.SUNDAY.PM 12:30</h2>
+        </div>
+        <div class="name">
+            김영희 & 이철수
+
+        </div>
+        <div class="main">
+        <p class="title">INVITATION</p>
+
+        <p class="msg">서로 다른 두 사람이 만나
+        사랑으로 하나 되는 자리에<br>
+        소중한 여러분들을 초대합니다.<br>
+        기쁠 때나, 슬플 때나<br>
+        서로를 사랑으로 품으며<br>
+        행복의 계단을 쌓아가겠습니다.<br>
+        저희의 첫 시작을 함께 해주신다면<br>
+        감사한 마음 깊이 간직하며 잘 살겠습니다.</p>
+
+        <p class="place">20○○. ○○. ○○. SUN. PM 12:30<br>
+        ○○웨딩 ■ ■홀</p>
+
+        </div>
+        <div class="bottom">
+            <p>축하 메시지를 남겨 주세요</p>
+            <input type="text" placeholder="이름">
+            <textarea placeholder= "메시지를 남겨주세요"></textarea>
+
+            <button>메시지 남기기</button>
+        </div>
+    </div>
+
+    <button class="icon" onClick="location.href='momentum_first.html'">Next</button>
+</body>
+</html>
