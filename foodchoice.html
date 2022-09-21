@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>오늘은 뭐 먹지? 고민될때 사용!</title>
+    <style>
+        .wrap {
+            width: 500px;
+            margin: 20px 20px;
+        }
+        .wrap >div {
+            padding-top: 30px;
+        }
+        img {
+            margin-top : 20px;
+            display: block;
+        }
+    </style>
+    <script>
+        function lunch() {
+            let url = 'https://foodish-api.herokuapp.com/api/'
+            fetch(url).then(res => res.json()).then((data) => {
+                let image = data['image']
+
+                $('#mylunch').attr('src', image)
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <button onclick="lunch()">오늘의 점심 메뉴 추천</button>
+        <img id="mylunch" src="" width="300">
+    </div>
+
+</body>
+
+</html>
